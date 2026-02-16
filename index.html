@@ -110,6 +110,42 @@
       pointer-events: none;
       z-index: 0;
     }
+
+    /* SKELETON STYLES */
+    .skeleton {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.08;
+      z-index: 0;
+    }
+    .skeleton-float {
+      animation: skeletonDance 3s ease-in-out infinite;
+    }
+    @keyframes skeletonDance {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      25% { transform: translateY(-5px) rotate(0deg); }
+      50% { transform: translateY(0) rotate(5deg); }
+      75% { transform: translateY(-5px) rotate(0deg); }
+    }
+    .skeleton-text {
+      font-size: 60px;
+      opacity: 0.06;
+    }
+    .spooky-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      margin-left: 8px;
+    }
+    .doot {
+      font-family: 'Bangers', cursive;
+      color: #333;
+      opacity: 0.1;
+    }
   </style>
 </head>
 <body class="font-display text-dark">
@@ -117,6 +153,12 @@
   <!-- SCOOBS SIDE DECORATIONS -->
   <div class="scoob scoob-side scoob-left hidden lg:block">SCOOBS</div>
   <div class="scoob scoob-side scoob-right hidden lg:block">SCOOBS</div>
+
+  <!-- FLOATING SKELETONS -->
+  <div class="skeleton skeleton-float hidden md:block" style="top: 10%; left: 3%; font-size: 60px;">💀</div>
+  <div class="skeleton skeleton-float hidden md:block" style="top: 40%; right: 2%; font-size: 50px; animation-delay: -1s;">☠️</div>
+  <div class="skeleton skeleton-float hidden md:block" style="bottom: 30%; left: 2%; font-size: 45px; animation-delay: -2s;">🦴</div>
+  <div class="skeleton skeleton-float hidden md:block" style="bottom: 60%; right: 3%; font-size: 55px; animation-delay: -0.5s;">💀</div>
 
   <!-- NAV -->
   <nav class="fixed top-0 left-0 w-full z-50 px-10 py-6 flex justify-between items-center mix-blend-difference">
@@ -132,10 +174,12 @@
 
   <!-- HERO -->
   <section class="hero-section bg-[#f5f5f0] flex flex-col justify-center px-10 md:px-20 relative overflow-hidden">
-    <!-- Floating scoobs -->
+    <!-- Floating scoobs and skeletons -->
     <div class="scoob scoob-float text-6xl" style="top: 15%; right: 15%;">scoobs</div>
     <div class="scoob scoob-float text-4xl" style="bottom: 20%; right: 25%; animation-delay: -1s;">zoinks!</div>
     <div class="ruh-roh" style="bottom: 10%; left: 5%; transform: rotate(-15deg);">RUH-ROH</div>
+    <div class="skeleton skeleton-float skeleton-text" style="top: 25%; left: 8%;">💀 doot</div>
+    <div class="skeleton skeleton-float" style="bottom: 35%; left: 15%; font-size: 80px; animation-delay: -1.5s;">🦴</div>
 
     <div class="absolute top-10 right-10 text-xs font-mono text-dark/30">
       // resuMEMEs v4.2.0<br>
@@ -179,17 +223,19 @@
     <div class="marquee-content">
       <span class="mx-8">🔥 HOT DIVS FRESH OFF THE PRESS</span>
       <span class="mx-8 font-scooby text-scooby">• SCOOBS •</span>
-      <span class="mx-8">💀 MY CODE WORKS I DON'T KNOW WHY</span>
+      <span class="mx-8">💀 MY CODE WORKS I DON'T KNOW WHY 💀</span>
       <span class="mx-8">• CTRL+C CTRL+V SPECIALIST •</span>
       <span class="mx-8 font-scooby text-scooby">• ZOINKS •</span>
+      <span class="mx-8">☠️ SKELETON CREW ONLY ☠️</span>
       <span class="mx-8">🚀 SHIPPED TO PROD ON FRIDAY</span>
-      <span class="mx-8">• CSS IS MY CARDIO •</span>
+      <span class="mx-8">• 🦴 DOOT DOOT 🦴 •</span>
       <span class="mx-8 font-scooby text-scooby">• RUH-ROH •</span>
       <span class="mx-8">🔥 HOT DIVS FRESH OFF THE PRESS</span>
       <span class="mx-8 font-scooby text-scooby">• SCOOBS •</span>
-      <span class="mx-8">💀 MY CODE WORKS I DON'T KNOW WHY</span>
+      <span class="mx-8">💀 MY CODE WORKS I DON'T KNOW WHY 💀</span>
       <span class="mx-8">• CTRL+C CTRL+V SPECIALIST •</span>
       <span class="mx-8 font-scooby text-scooby">• JINKIES •</span>
+      <span class="mx-8">☠️ SPOOKY SCARY DEVELOPERS ☠️</span>
       <span class="mx-8">🚀 SHIPPED TO PROD ON FRIDAY</span>
       <span class="mx-8">• CSS IS MY CARDIO •</span>
     </div>
@@ -199,6 +245,8 @@
   <section id="profile" class="section bg-[#eaeae5] relative overflow-hidden">
     <div class="ruh-roh" style="top: 5%; right: -5%; transform: rotate(10deg);">JINKIES</div>
     <div class="scoob scoob-float text-5xl" style="bottom: 10%; left: 5%;">scoobs</div>
+    <div class="skeleton skeleton-float" style="top: 15%; left: 3%; font-size: 70px;">💀</div>
+    <div class="skeleton skeleton-text doot" style="bottom: 25%; right: 8%; transform: rotate(15deg);">doot doot</div>
 
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="flex items-center gap-4 mb-4">
@@ -240,8 +288,8 @@
           </p>
 
           <div class="border-l-2 border-gold pl-6 relative">
-            <p class="font-mono text-sm text-gold mb-2">Current Learning Focus</p>
-            <p class="text-dark/60">How to exit Vim, why node_modules is 2GB, and the meaning of "it's a feature not a bug"</p>
+            <p class="font-mono text-sm text-gold mb-2">Current Learning Focus <span class="spooky-badge">💀 SPOOKY</span></p>
+            <p class="text-dark/60">How to exit Vim, why node_modules is 2GB, and the meaning of "it's a feature not a bug" <span class="text-dark/20">🦴</span></p>
             <span class="absolute -right-2 top-0 font-scooby text-scooby/20 text-sm">scoobs</span>
           </div>
         </div>
@@ -253,6 +301,8 @@
   <section id="skills" class="section bg-[#f5f5f0] relative overflow-hidden">
     <div class="ruh-roh" style="top: 20%; left: -10%; transform: rotate(-20deg);">SCOOBS</div>
     <div class="scoob scoob-float text-4xl" style="top: 30%; right: 8%;">ruh-roh!</div>
+    <div class="skeleton skeleton-float" style="bottom: 15%; right: 5%; font-size: 90px;">☠️</div>
+    <div class="skeleton skeleton-text doot" style="top: 60%; left: 2%; transform: rotate(-10deg);">💀 spooky</div>
 
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="flex items-center gap-4 mb-4">
@@ -367,17 +417,21 @@
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">React (my beloved)</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">TypeScript (any)</span>
           <span class="px-4 py-2 bg-scooby text-white text-sm font-scooby">SCOOBS</span>
+          <span class="px-4 py-2 bg-gray-800 text-white text-sm">💀 SKELETON.js</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">Tailwind (utility addiction)</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">Next.js (it's just React)</span>
           <span class="px-4 py-2 bg-scooby text-white text-sm font-scooby">ZOINKS</span>
+          <span class="px-4 py-2 bg-gray-800 text-white text-sm">☠️ DOOT DOOT</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">Node.js (npm install)</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">Git (push and pray)</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">VS Code (with 47 extensions)</span>
           <span class="px-4 py-2 bg-scooby text-white text-sm font-scooby">RUH-ROH</span>
+          <span class="px-4 py-2 bg-gray-800 text-white text-sm">🦴 BONE.css</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">Stack Overflow (my mentor)</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">ChatGPT (my senior dev)</span>
           <span class="px-4 py-2 bg-dark text-white text-sm font-mono">Coffee (dependency)</span>
           <span class="px-4 py-2 bg-scooby text-white text-sm font-scooby">JINKIES</span>
+          <span class="px-4 py-2 bg-gray-800 text-white text-sm">💀 SPOOKY MODE</span>
         </div>
       </div>
     </div>
@@ -387,6 +441,9 @@
   <section id="experience" class="section bg-dark text-white relative overflow-hidden">
     <div class="absolute top-10 left-10 font-scooby text-white/5 text-[150px] leading-none pointer-events-none">SCOOBS</div>
     <div class="scoob scoob-float text-5xl !text-white/10" style="bottom: 20%; right: 10%;">zoinks!</div>
+    <div class="absolute bottom-10 right-10 text-white/5 text-[100px] pointer-events-none">💀</div>
+    <div class="skeleton skeleton-float !opacity-5" style="top: 40%; left: 5%; font-size: 80px;">☠️</div>
+    <div class="absolute top-1/2 right-5 text-white/[0.03] text-8xl font-scooby rotate-90 pointer-events-none">DOOT DOOT</div>
 
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="flex items-center gap-4 mb-4">
@@ -489,6 +546,8 @@
   <section id="contact" class="section bg-[#f5f5f0] relative overflow-hidden">
     <div class="ruh-roh" style="bottom: 5%; right: -5%; transform: rotate(15deg);">ZOINKS</div>
     <div class="scoob scoob-float text-5xl" style="top: 20%; left: 5%;">scoobs!</div>
+    <div class="skeleton skeleton-float" style="bottom: 20%; left: 8%; font-size: 70px;">💀</div>
+    <div class="skeleton skeleton-text doot" style="top: 35%; right: 3%; transform: rotate(10deg);">🦴 spooky mail 🦴</div>
 
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="flex items-center gap-4 mb-4">
@@ -543,6 +602,8 @@
     <div class="absolute inset-0 font-scooby text-white/[0.02] text-[200px] leading-none flex items-center justify-center pointer-events-none">
       SCOOBS
     </div>
+    <div class="absolute top-5 left-10 text-white/[0.03] text-6xl pointer-events-none">💀</div>
+    <div class="absolute bottom-5 right-10 text-white/[0.03] text-6xl pointer-events-none">☠️</div>
 
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
@@ -551,7 +612,7 @@
             <span class="text-gold">Ramsey</span> Jordan
           </h3>
           <p class="text-white/40 font-mono text-sm mt-2">
-            Professional Div Centerer // Meme Connoisseur // <span class="font-scooby text-scooby">Mystery Inc. Affiliate</span>
+            Professional Div Centerer // Meme Connoisseur // <span class="font-scooby text-scooby">Mystery Inc. Affiliate</span> // <span class="text-white/30">💀 Skeleton Crew</span>
           </p>
         </div>
 
@@ -560,9 +621,9 @@
             Raleigh, NC // <span id="time"></span> EST
           </p>
           <p class="text-white/40 font-mono text-xs mt-2">
-            © 2026 Ramsey Jordan // Built with tears and caffeine
+            © 2026 Ramsey Jordan // Built with tears and caffeine 💀
           </p>
-          <p class="font-scooby text-scooby/50 text-sm mt-1">and scooby snacks</p>
+          <p class="font-scooby text-scooby/50 text-sm mt-1">and scooby snacks 🦴</p>
         </div>
       </div>
 
@@ -574,6 +635,7 @@
           <span class="text-white/40 font-mono text-xs">System Integrity</span>
           <span class="text-green-500 font-mono text-xs">● Vibes Verified</span>
           <span class="font-scooby text-scooby text-xs ml-2">● Scooby Approved</span>
+          <span class="text-white/40 text-xs ml-2">● 💀 Spooky Certified</span>
         </div>
       </div>
     </div>
